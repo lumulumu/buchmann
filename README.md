@@ -1,19 +1,23 @@
 # PflegeForge
 
-This repository provides a minimal monorepo skeleton for the platform described in the project plan. It follows the [Next Forge](https://docs.next-forge.com/overview) approach for structuring Next.js 14 apps in a Turborepo and integrates Supabase, Stripe, Twilio, Resend and OpenAI.
 
-The project structure:
+This repository provides a starter monorepo for building the onboarding service described in the project outline. It relies on Next.js with Turborepo and integrates Supabase, Stripe, Twilio, Resend and OpenAI.
 
-- `apps/web` – Next.js 14 frontend
-- `apps/api` – API routes and webhooks
-- `packages/db` – database types and utilities
-- `packages/ai` – wrapper for OpenAI
+## Structure
 
-The root `package.json` defines workspaces for each app and package. Dependency installation requires network access which is not available in this environment, so you will need to run `pnpm install` locally. Copy `.env.example` to `.env` and fill in your credentials before running the apps.
+- `apps/web` – customer facing Next.js app with an onboarding wizard
+- `apps/api` – Next.js API routes (webhooks, cron jobs)
+- `packages/db` – shared TypeScript types for the Supabase schema
+- `packages/ai` – wrapper for OpenAI calls
 
-## Development
+Install dependencies locally and run all apps with Turborepo:
+
 
 ```bash
 pnpm install
 pnpm turbo run dev
 ```
+
+
+The web app offers a login with Google and a simple multi-step wizard. Form data is saved via server actions to Supabase with `status = draft` until payment succeeds. Stripe webhooks update the payment table and set the case status to `pending`.
+
