@@ -1,12 +1,15 @@
 export type User = {
   id: string;
   email: string;
+
   role: 'client' | 'admin';
   stripe_customer_id: string | null;
+
 };
 
 export type Case = {
   id: string;
+
   user_id: string;
   pflegegrad_target: number | null;
   kasse: string | null;
@@ -37,4 +40,5 @@ export type Appointment = {
   kind: 'mdk' | 'prep_call';
   starts_at: string;
   channel: string;
+
 };

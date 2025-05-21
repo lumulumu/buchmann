@@ -1,5 +1,6 @@
 # PflegeForge
 
+
 This repository provides a starter monorepo for building the onboarding service described in the project outline. It relies on Next.js with Turborepo and integrates Supabase, Stripe, Twilio, Resend and OpenAI.
 
 ## Structure
@@ -11,9 +12,12 @@ This repository provides a starter monorepo for building the onboarding service 
 
 Install dependencies locally and run all apps with Turborepo:
 
+
 ```bash
 pnpm install
 pnpm turbo run dev
 ```
 
+
 The web app offers a login with Google and a simple multi-step wizard. Form data is saved via server actions to Supabase with `status = draft` until payment succeeds. Stripe webhooks update the payment table and set the case status to `pending`.
+

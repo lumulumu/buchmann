@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+
 import { saveStep } from './actions';
 
 export default function WizardPage() {
@@ -38,5 +39,6 @@ export default function WizardPage() {
       )}
       {step === 3 && <p>Vielen Dank! Weitere Schritte folgen.</p>}
     </div>
+
   );
 }

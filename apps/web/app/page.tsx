@@ -1,3 +1,4 @@
+
 'use client';
 import Link from 'next/link';
 import { useAuth } from '../providers/auth';
@@ -16,6 +17,7 @@ export default function Page() {
       ) : (
         <button onClick={signIn} className="px-4 py-2 bg-blue-500 text-white">Login mit Google</button>
       )}
+
     </main>
   );
 }
